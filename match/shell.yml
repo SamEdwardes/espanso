@@ -1,0 +1,4 @@
+matches:
+
+  - trigger: ":ip"
+    replace: "curl ifconfig.io && curl ifconfig.me"

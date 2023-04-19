@@ -1,0 +1,51 @@
+matches:
+
+  - trigger: ":today"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - triggers: [":vtoday"]
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          # Example: Wednesday April 19, 2023
+          format: "%A %B %e, %Y"
+
+  - trigger: ":datetime"
+    replace: "{{x}}"
+    vars:
+      - name: x
+        type: date
+        params:
+          format: "%A %B %e, %Y %H:%M"
+
+  - trigger: ":day"
+    replace: "{{day}}"
+    vars:
+      - name: day
+        type: date
+        params:
+          format: "%A"
+
+  - triggers: [":now", ":time"]
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%H:%M"
+
+
+  - trigger: ":utc"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: 'TZ=GMT date +"%Y-%m-%d %H:%M:%S UTC"'

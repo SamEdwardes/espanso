@@ -1,0 +1,45 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+ 
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  - trigger: ":marketplace"
+    replace: >
+      The item is available for pickup. I can meet you outside Main Street Brewing
+      at Main and 7th (https://goo.gl/maps/Cz2rexTBg1aHaEHV6). Please call me
+      when you arrive at 647-529-7301. I will see calls but may miss
+      Facebook messages if you run late or early.
+
+  - trigger: ":sig"
+    replace: |
+      --
+      Sam Edwardes
+      647-529-7301
+      edwardes.s@gmail.com
+
+  - trigger: ":file"
+    replace: "{{form1.file}}"
+    vars:
+      - name: files
+        type: shell
+        params:
+          cmd: "find ~/Documents -maxdepth 1"
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Select file:
+            [[file]]
+          fields:
+            file:
+              type: list
+              values: "{{files}}"
