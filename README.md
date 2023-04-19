@@ -14,5 +14,5 @@ brew install espanso
 Copy the configuration files:
 
 ```bash
-git clone x "${HOME}/Library/Application Support/espanso"
+git clone https://github.com/SamEdwardes/espanso-config.git "${HOME}/Library/Application Support/espanso/tmp"
 ```
