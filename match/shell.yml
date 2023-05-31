@@ -2,3 +2,82 @@ matches:
 
   - trigger: ":ip"
     replace: "curl ifconfig.io && curl ifconfig.me"
+
+  - trigger: ":path"
+    replace: 'echo $PATH | tr ":" "\n"'
+  
+  - trigger: ":install-docker"
+    replace: "curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh ./get-docker.sh"
+
+  - trigger: ":install-just"
+    replace: "curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin && curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
+
+  - trigger: ":post-justfile"
+    replace: "curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
+
+  - trigger: ":heredoc"
+    replace: |
+      tee file <<EOF
+      
+      EOF
+
+  - trigger: ":sh-init"
+    replace: |
+      #!/bin/bash
+      print_new_section() {
+        echo ""
+        echo "-----------------------------------------------------------------"
+        echo "$1"
+        echo "-----------------------------------------------------------------"
+      }
+
+      # ------------------------------------------------------------------------
+      # Install system deps
+      # ------------------------------------------------------------------------
+      print_new_section "Installing system deps"
+      sudo apt-get update
+      sudo apt-get install -y build-essential
+      
+      # ------------------------------------------------------------------------
+      # Install docker
+      # ------------------------------------------------------------------------
+      print_new_section "Installing Docker"
+      curl -fsSL https://get.docker.com -o get-docker.sh
+      sudo sh ./get-docker.sh
+
+      # ------------------------------------------------------------------------
+      # Install GitHub CLI
+      # ------------------------------------------------------------------------
+      print_new_section "Installing GitHub CLI"
+      type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+      curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+        && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+        && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+        && sudo apt update \
+        && sudo apt install gh -y
+
+      # ------------------------------------------------------------------------
+      # Install nvim
+      # ------------------------------------------------------------------------
+      print_new_section "Installing NeoVim"
+      curl -sSfLJ https://github.com/SamEdwardes/neovim-config/raw/main/setup.sh | bash -s --
+
+      # ------------------------------------------------------------------------
+      # Install homebrew
+      # ------------------------------------------------------------------------
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      brew install gcc
+      
+      # ------------------------------------------------------------------------
+      # Install Starship
+      # ------------------------------------------------------------------------
+      print_new_section "Installing Starship"
+      curl -sS https://starship.rs/install.sh -o starship_installer.sh
+      chmod +x starship_installer.sh 
+      sudo ./starship_installer.sh --yes
+      echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
+      rm starship_installer.sh
+      eval "$(starship init bash)"
+

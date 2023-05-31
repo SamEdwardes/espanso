@@ -1,7 +1,6 @@
 matches:
-
-
-  - trigger: "archi"
+  
+  - trigger: ":archi"
     replace: "architecture"
     propagate_case: true
     # word: true
