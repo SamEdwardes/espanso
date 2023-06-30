@@ -1,0 +1,10 @@
+# matches:
+
+#   - trigger: ":gpt(x)"
+#     replace: "{{response}}"
+#     vars:
+#       - name: response
+#         type: shell
+#         params:
+#           cmd: echo "hello world - {{}}"
+

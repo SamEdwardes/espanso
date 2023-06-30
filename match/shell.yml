@@ -12,8 +12,11 @@ matches:
   - trigger: ":install-just"
     replace: "curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin && curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
 
-  - trigger: ":post-justfile"
+  - trigger: ":posit-justfile"
     replace: "curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
+
+  - trigger: ":ll"
+    replace: "alias ll='ls -la'"
 
   - trigger: ":heredoc"
     replace: |

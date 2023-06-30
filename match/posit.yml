@@ -22,6 +22,7 @@ matches:
       alias diagnostic="/usr/sbin/rstudio-server run-diagnostics"
       alias license-status="/usr/sbin/rstudio-server license-manager status"
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Workbench Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-server/rserver.log && echo -e ${GREEN}"\n Posit Launcher Logs:\n"${NC} && tail -n 15 /var/log/rstudio/launcher/rstudio-launcher.log'
+      alias lb-status='curl http://localhost:8787/load-balancer/status'
 
   - trigger: ":pct-alias"
     replace: |

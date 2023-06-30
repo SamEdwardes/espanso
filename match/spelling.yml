@@ -1,6 +1,10 @@
 matches:
   
-  - trigger: ":archi"
+  - trigger: ":arch"
     replace: "architecture"
     propagate_case: true
     # word: true
+
+  - trigger: ":ds"
+    replace: "data scientist"
+    propagate_case: true
