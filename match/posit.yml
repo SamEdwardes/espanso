@@ -1,17 +1,41 @@
 matches:
 
-  - trigger: ":demos"
-    replace: https://github.com/SamEdwardes/rstudio-demos
+  - trigger: ":tam-hours"
+    replace: >
+      TAM is a duration-based service and not one where we can stockpile hours. 
+      I'm happy to be flexible with the time during the week, but if you opt not 
+      to have a meeting this week, that will not extend the duration of the engagement.
 
-  - trigger: ":cal60"
-    replace: https://calendly.com/sam-edwardes-posit/60-minute-meeting
-  
-  - trigger: ":cal45"
-    replace: https://calendly.com/sam-edwardes-posit/45-minute-meeting
-  
-  - trigger: ":cal30"
-    replace: https://calendly.com/sam-edwardes-posit/30min
-  
+  # ----------------------------------------------------------------------------
+  # Other install stuff
+  # ----------------------------------------------------------------------------
+  - trigger: ":install-r"
+    replace: "{{script}}"
+    vars:
+      - name: script
+        type: shell
+        params:
+          cmd: gh api /gists/98edf3ee6b691ccc0fa318e20ff21dc8 | jq --raw-output '.files["install-r.sh"]["content"]'
+
+  - trigger: ":install-python"
+    replace: "{{script}}"
+    vars:
+      - name: script
+        type: shell
+        params:
+          cmd: gh api /gists/98edf3ee6b691ccc0fa318e20ff21dc8 | jq --raw-output '.files["install-python.sh"]["content"]'
+
+  # ----------------------------------------------------------------------------
+  # Workbench
+  # ----------------------------------------------------------------------------
+  - trigger: ":pwb-install"
+    replace: "{{script}}"
+    vars:
+      - name: script
+        type: shell
+        params:
+          cmd: gh api /gists/98edf3ee6b691ccc0fa318e20ff21dc8 | jq --raw-output '.files["install-posit-workbench.sh"]["content"]'
+
   - trigger: ":pwb-alias"
     replace: |
       alias config='f(){ vi /etc/rstudio/"$1";  unset -f f; }; f'
@@ -24,6 +48,17 @@ matches:
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Workbench Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-server/rserver.log && echo -e ${GREEN}"\n Posit Launcher Logs:\n"${NC} && tail -n 15 /var/log/rstudio/launcher/rstudio-launcher.log'
       alias lb-status='curl http://localhost:8787/load-balancer/status'
 
+  # ----------------------------------------------------------------------------
+  # Connect
+  # ----------------------------------------------------------------------------
+  - trigger: ":pct-install"
+    replace: "{{script}}"
+    vars:
+      - name: script
+        type: shell
+        params:
+          cmd: gh api /gists/98edf3ee6b691ccc0fa318e20ff21dc8 | jq --raw-output '.files["install-posit-connect.sh"]["content"]'
+
   - trigger: ":pct-alias"
     replace: |
       alias config="vi /etc/rstudio-connect/rstudio-connect.gcfg"
@@ -34,6 +69,17 @@ matches:
       alias diagnostic="/opt/rstudio-connect/scripts/run-diagnostics.sh ~/"
       alias license-status="/opt/rstudio-connect/bin/license-manager status"
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Connect Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-connect/rstudio-connect.log'
+
+  # ----------------------------------------------------------------------------
+  # Package Manager
+  # ----------------------------------------------------------------------------
+  - trigger: ":ppm-install"
+    replace: "{{script}}"
+    vars:
+      - name: script
+        type: shell
+        params:
+          cmd: gh api /gists/98edf3ee6b691ccc0fa318e20ff21dc8 | jq --raw-output '.files["install-posit-package-manager.sh"]["content"]'
 
   - trigger: ":ppm-alias"
     replace: |
@@ -47,3 +93,4 @@ matches:
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Package Manager Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-pm/rstudio-pm.log'
       alias cran-setup="/opt/rstudio-pm/bin/rspm create repo --name=cran --description='Access CRAN packages' && /opt/rstudio-pm/bin/rspm subscribe --repo=cran --source=cran && /opt/rstudio-pm/bin/rspm sync --type=cran &"
       alias pypi-setup="/opt/rstudio-pm/bin/rspm create repo --name=pypi --type=python --description='Access PyPI packages' && /opt/rstudio-pm/bin/rspm subscribe --repo=pypi --source=pypi && nohup /opt/rstudio-pm/bin/rspm sync --type=pypi &"
+
