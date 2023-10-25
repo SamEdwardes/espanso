@@ -8,7 +8,7 @@
 # Matches are substitution rules: when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
- 
+
   - trigger: ":espanso"
     replace: "Hi there!"
 
@@ -25,6 +25,26 @@ matches:
       Sam Edwardes
       647-529-7301
       edwardes.s@gmail.com
+
+  - trigger: ":em"
+    replace: "edwardes.s@gmail.com"
+
+  - trigger: "e+"
+    replace: "edwardes.s+@gmail.com"
+
+  - trigger: ":phone"
+    replace: "647-529-7301"
+
+  - trigger: ":arch"
+    replace: "architecture"
+    propagate_case: true
+
+  - trigger: ":ds"
+    replace: "data scientist"
+    propagate_case: true
+
+  - trigger: ":sf"
+    replace: "Salesforce"
 
   - trigger: ":file"
     replace: "{{form1.file}}"
