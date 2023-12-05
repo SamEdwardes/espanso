@@ -12,6 +12,9 @@ matches:
   - trigger: ":espanso"
     replace: "Hi there!"
 
+  - trigger: ":lorem"
+    replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
   - trigger: ":marketplace"
     replace: >
       The item is available for pickup. I can meet you outside Main Street Brewing

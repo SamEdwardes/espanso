@@ -3,12 +3,15 @@ matches:
   - trigger: ":demos"
     replace: https://github.com/SamEdwardes/rstudio-demos
 
+  - trigger: ":cale"
+    replace: https://calendly.com/sam-edwardes-posit
+
   - trigger: ":cal60"
     replace: https://calendly.com/sam-edwardes-posit/60-minute-meeting
-  
+
   - trigger: ":cal45"
     replace: https://calendly.com/sam-edwardes-posit/45-minute-meeting
-  
+
   - trigger: ":cal30"
     replace: https://calendly.com/sam-edwardes-posit/30min
 

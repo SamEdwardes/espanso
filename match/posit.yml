@@ -2,8 +2,8 @@ matches:
 
   - trigger: ":tam-hours"
     replace: >
-      TAM is a duration-based service and not one where we can stockpile hours. 
-      I'm happy to be flexible with the time during the week, but if you opt not 
+      TAM is a duration-based service and not one where we can stockpile hours.
+      I'm happy to be flexible with the time during the week, but if you opt not
       to have a meeting this week, that will not extend the duration of the engagement.
 
   # ----------------------------------------------------------------------------
@@ -70,6 +70,9 @@ matches:
       alias license-status="/opt/rstudio-connect/bin/license-manager status"
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Connect Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-connect/rstudio-connect.log'
 
+  - trigger: ":pct-api"
+    replace: 'curl --silent --show-error -L --max-redirs 0 --fail -X GET -H "Authorization: Key ${CNCT_API_KEY_POSIT_IT}" "https://connect.posit.it/__api__/v1/content"'
+
   # ----------------------------------------------------------------------------
   # Package Manager
   # ----------------------------------------------------------------------------
@@ -93,4 +96,3 @@ matches:
       alias logs='GREEN="\033[0;32m" && NC="\033[0m" && echo -e ${GREEN}"\n Posit Package Manager Logs:\n"${NC} && tail -n 15 /var/log/rstudio/rstudio-pm/rstudio-pm.log'
       alias cran-setup="/opt/rstudio-pm/bin/rspm create repo --name=cran --description='Access CRAN packages' && /opt/rstudio-pm/bin/rspm subscribe --repo=cran --source=cran && /opt/rstudio-pm/bin/rspm sync --type=cran &"
       alias pypi-setup="/opt/rstudio-pm/bin/rspm create repo --name=pypi --type=python --description='Access PyPI packages' && /opt/rstudio-pm/bin/rspm subscribe --repo=pypi --source=pypi && nohup /opt/rstudio-pm/bin/rspm sync --type=pypi &"
-
