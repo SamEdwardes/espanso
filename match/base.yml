@@ -38,6 +38,9 @@ matches:
   - trigger: ":phone"
     replace: "647-529-7301"
 
+  - trigger: b/c
+    replace: "because"
+
   - trigger: ":arch"
     replace: "architecture"
     propagate_case: true
