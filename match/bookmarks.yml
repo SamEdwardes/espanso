@@ -1,25 +1,25 @@
 matches:
 
-  - trigger: ":demos"
+  - trigger: ";demos"
     replace: https://github.com/SamEdwardes/rstudio-demos
 
-  - trigger: ":cale"
+  - trigger: ";cale"
     replace: https://calendly.com/sam-edwardes-posit
 
-  - trigger: ":cal60"
+  - trigger: ";cal60"
     replace: https://calendly.com/sam-edwardes-posit/60-minute-meeting
 
-  - trigger: ":cal45"
+  - trigger: ";cal45"
     replace: https://calendly.com/sam-edwardes-posit/45-minute-meeting
 
-  - trigger: ":cal30"
+  - trigger: ";cal30"
     replace: https://calendly.com/sam-edwardes-posit/30min
 
-  - trigger: ":zoom"
+  - trigger: ";zoom"
     replace: https://positpbc.zoom.us/my/sam.ewardes
 
-  - trigger: ":gists"
+  - trigger: ";gists"
     replace: https://gist.github.com/SamEdwardes
 
-  - trigger: ":github"
+  - trigger: ";github"
     replace: https://github.com/SamEdwardes?tab=repositories

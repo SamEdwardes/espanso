@@ -1,4 +1,4 @@
 matches:
 
-  - trigger: ":venv"
+  - trigger: ";venv"
     replace: python -m venv .venv && source .venv/bin/activate && python -m pip install --upgrade pip wheel setuptools

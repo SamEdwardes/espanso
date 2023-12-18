@@ -1,30 +1,30 @@
 matches:
 
-  - trigger: ":ip"
+  - trigger: ";ip"
     replace: "curl ifconfig.io && curl ifconfig.me"
 
-  - trigger: ":path"
+  - trigger: ";path"
     replace: 'echo $PATH | tr ":" "\n"'
-  
-  - trigger: ":install-docker"
+
+  - trigger: ";install-docker"
     replace: "curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh ./get-docker.sh"
 
-  - trigger: ":install-just"
+  - trigger: ";install-just"
     replace: "curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin && curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
 
-  - trigger: ":posit-justfile"
+  - trigger: ";posit-justfile"
     replace: "curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
 
-  - trigger: ":ll"
+  - trigger: ";ll"
     replace: "alias ll='ls -la'"
 
-  - trigger: ":heredoc"
+  - trigger: ";heredoc"
     replace: |
       tee file <<EOF
-      
+
       EOF
 
-  - trigger: ":sh-init"
+  - trigger: ";sh-init"
     replace: |
       #!/bin/bash
       print_new_section() {
@@ -40,7 +40,7 @@ matches:
       print_new_section "Installing system deps"
       sudo apt-get update
       sudo apt-get install -y build-essential
-      
+
       # ------------------------------------------------------------------------
       # Install docker
       # ------------------------------------------------------------------------
@@ -72,15 +72,14 @@ matches:
       (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       brew install gcc
-      
+
       # ------------------------------------------------------------------------
       # Install Starship
       # ------------------------------------------------------------------------
       print_new_section "Installing Starship"
       curl -sS https://starship.rs/install.sh -o starship_installer.sh
-      chmod +x starship_installer.sh 
+      chmod +x starship_installer.sh
       sudo ./starship_installer.sh --yes
       echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
       rm starship_installer.sh
       eval "$(starship init bash)"
-
