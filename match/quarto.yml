@@ -1,0 +1,11 @@
+matches:
+  - trigger: ";```py"
+    replace: |
+      ```{python}
+      $|$
+      ```
+  - trigger: ";```r"
+    replace: |
+      ```{r}
+      $|$
+      ```

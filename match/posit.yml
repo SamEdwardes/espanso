@@ -1,5 +1,14 @@
 matches:
 
+  - trigger: ";ppm-name"
+    replace: "Posit Package Manager"
+
+  - trigger: ";pct-name"
+    replace: "Posit Connect"
+
+  - trigger: ";pwb-name"
+    replace: "Posit Workbench"
+
   - trigger: ";tam-hours"
     replace: >
       TAM is a duration-based service and not one where we can stockpile hours.
