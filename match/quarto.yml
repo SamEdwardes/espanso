@@ -1,10 +1,10 @@
 matches:
-  - trigger: ";```py"
+  - trigger: ":```py"
     replace: |
       ```{python}
       $|$
       ```
-  - trigger: ";```r"
+  - trigger: ":```r"
     replace: |
       ```{r}
       $|$

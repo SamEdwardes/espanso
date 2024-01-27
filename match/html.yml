@@ -1,9 +1,9 @@
 matches:
 
-  - trigger: ";div"
+  - trigger: ":div"
     replace: "<div>$|$</div>"
 
-  - trigger: ";html-fold"
+  - trigger: ":html-fold"
     replace: |
       <details>
       <summary>Click to expand</summary>
