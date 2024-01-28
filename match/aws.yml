@@ -1,4 +1,4 @@
 matches:
 
-  - trigger: ":aws-user-data-logs"
+  - trigger: "::aws-user-data-logs"
     replace: "tail -f /var/log/cloud-init-output.log"

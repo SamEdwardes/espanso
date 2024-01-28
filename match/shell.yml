@@ -1,24 +1,24 @@
 matches:
 
-  - trigger: ":ip"
+  - trigger: "::ip"
     replace: "curl ifconfig.io && curl ifconfig.me"
 
-  - trigger: ":path"
+  - trigger: "::path"
     replace: 'echo $PATH | tr ":" "\n"'
 
-  - trigger: ":install-docker"
+  - trigger: "::install-docker"
     replace: "curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh ./get-docker.sh"
 
-  - trigger: ":install-just"
+  - trigger: "::install-just"
     replace: "curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin && curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
 
-  - trigger: ":posit-justfile"
+  - trigger: "::posit-justfile"
     replace: "curl -O https://raw.githubusercontent.com/SamEdwardes/posit-justfile/main/justfile"
 
-  - trigger: ":ll"
+  - trigger: "::ll"
     replace: "alias ll='ls -la'"
 
-  - trigger: ":bash-init"
+  - trigger: "::bash-init"
     replace: |
       #!/bin/env bash
       DEBIAN_FRONTEND=noninteractive
@@ -35,13 +35,13 @@ matches:
       # exec > ~/ubuntu/script.logs 2>&1
 
 
-  - trigger: ":heredoc"
+  - trigger: "::heredoc"
     replace: |
       tee file <<EOF
 
       EOF
 
-  - trigger: ":bootstrap"
+  - trigger: "::bootstrap"
     replace: "{{output}}"
     vars:
       - name: output

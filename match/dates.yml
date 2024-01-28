@@ -1,6 +1,6 @@
 matches:
 
-  - trigger: ":today"
+  - trigger: "::today"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -17,7 +17,7 @@ matches:
           # Example: Wednesday April 19, 2023
           format: "%A %B %e, %Y"
 
-  - trigger: ":datetime"
+  - trigger: "::datetime"
     replace: "{{x}}"
     vars:
       - name: x
@@ -25,7 +25,7 @@ matches:
         params:
           format: "%A %B %e, %Y %H:%M"
 
-  - trigger: ":day"
+  - trigger: "::day"
     replace: "{{day}}"
     vars:
       - name: day
@@ -42,7 +42,7 @@ matches:
           format: "%H:%M"
 
 
-  - trigger: ":utc"
+  - trigger: "::utc"
     replace: "{{output}}"
     vars:
       - name: output

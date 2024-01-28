@@ -9,60 +9,60 @@
 # it gets replaced by the "replace" string.
 matches:
 
-  - trigger: ":espanso"
+  - trigger: "::espanso"
     replace: "Hi there!"
 
-  - trigger: ":lorem"
+  - trigger: "::lorem"
     replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
-  - trigger: ":marketplace"
+  - trigger: "::marketplace"
     replace: >
       The item is available for pickup. I can meet you outside Main Street Brewing
       at Main and 7th (https://goo.gl/maps/Cz2rexTBg1aHaEHV6). Please call me
       when you arrive at 647-529-7301. I will see calls but may miss
       Facebook messages if you run late or early.
 
-  - trigger: ":sig"
+  - trigger: "::sig"
     replace: |
       --
       Sam Edwardes
       647-529-7301
       edwardes.s@gmail.com
 
-  - trigger: ":em"
+  - trigger: "::em"
     replace: "edwardes.s@gmail.com"
 
-  - trigger: ":e+"
+  - trigger: "::e+"
     replace: "edwardes.s+@gmail.com"
 
-  - trigger: ":phone"
+  - trigger: "::phone"
     replace: "647-529-7301"
 
-  - trigger: ":bc"
+  - trigger: "::bc"
     replace: "because"
 
-  - trigger: ":arch"
+  - trigger: "::arch"
     replace: "architecture"
     propagate_case: true
 
-  - trigger: ":ds"
+  - trigger: "::ds"
     replace: "data scientist"
     propagate_case: true
 
-  - trigger: ":sf"
+  - trigger: "::sf"
     replace: "Salesforce"
 
-  - trigger: ":opp"
+  - trigger: "::opp"
     replace: "opportunity"
     propagate_case: true
 
-  - trigger: ":se"
+  - trigger: "::se"
     replace: "Solutions Engineering"
 
-  - trigger: ":k8s"
+  - trigger: "::k8s"
     replace: "Kubernetes"
 
-  - trigger: ":file"
+  - trigger: "::file"
     replace: "{{form1.file}}"
     vars:
       - name: files
