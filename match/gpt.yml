@@ -1,6 +1,6 @@
 # matches:
 
-#   - trigger: "::gpt(x)"
+#   - trigger: ";gpt(x)"
 #     replace: "{{response}}"
 #     vars:
 #       - name: response

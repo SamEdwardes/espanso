@@ -1,6 +1,6 @@
 matches:
 
-  - trigger: "::shiny"
+  - trigger: ";shiny"
     replace: |
       library(shiny)
 
